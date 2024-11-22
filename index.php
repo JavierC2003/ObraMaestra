@@ -17,8 +17,6 @@
         <div class="logo">
             <img src="logotipo.webp" alt="logotipo">
         </div>
-    </header>
-    <main>
         <div class="barra">
                 <div>
                     <a href="#">INICIO</a>
@@ -55,53 +53,19 @@
                     <p>Accesorios para jardín</p>
                 </div>
         </div>
+    </header>
+    <main>
         <section class="hero">
             <h2>Bienvenido a la mejor tienda de materiales</h2>
             <aside>Encuentra todo lo que necesitas para tus proyectos</aside>
         </section>
         <section class="Productos_Destacados">
             <h2><br><br><br>Productos Destacados</h2>
-            <div class="producto">
-                <img src="imagenes/block10_entero.png" alt="Producto 1">
-                <h3>BLOCK DE 10 ENTERO</h3>
-                <aside>Medida Nominal: 10 x 20 x 40 cm. <br>Medida Especifica: 9.20 x 19.37 x 39.70 cm. <br>Peso:  10.400kg.
-                </aside>
-            </div>
-            <div class="producto">
-                <img src="imagenes/block12_entero.png" alt="Producto 2">
-                <h3>BLOCK DE 12 ENTERO
-                </h3>
-                <aside>Medida Nominal: 12 x 20 x 40 cm.<br>Medida Especifica: 11.75 x 19.37 x 39.70 cm.<br>Peso:  11.350kg.
-                </aside>
-            </div>
-            <div class="producto">
-                <img src="imagenes/block15_entero.png" alt="Producto 3">
-                <h3>BLOCK DE 15 ENTERO</h3>
-                <aside>Medida Nominal: 15 x 20 x 40 cm. <br>Medida Especifica: 14.30 x 19.37 x 39.70 cm.<br>Peso:  12.450kg.
-                </aside>
-            </div>
+            <?php include 'productosDesta.php'; ?>
         </section>
         <section class="Productos_De_Interes">
             <h2><br><br><br>Productos De Interes</h2>
-            <div class="interes">
-                <img src="imagenes/block10_entero.png" alt="Producto 1">
-                <h3>BLOCK DE 10 ENTERO</h3>
-                <aside>Medida Nominal: 10 x 20 x 40 cm. <br>Medida Especifica: 9.20 x 19.37 x 39.70 cm. <br>Peso:  10.400kg.
-                </aside>
-            </div>
-            <div class="interes">
-                <img src="imagenes/block12_entero.png" alt="Producto 2">
-                <h3>BLOCK DE 12 ENTERO
-                </h3>
-                <aside>Medida Nominal: 12 x 20 x 40 cm.<br>Medida Especifica: 11.75 x 19.37 x 39.70 cm.<br>Peso:  11.350kg.
-                </aside>
-            </div>
-            <div class="interes">
-                <img src="imagenes/block15_entero.png" alt="Producto 3">
-                <h3>BLOCK DE 15 ENTERO</h3>
-                <aside>Medida Nominal: 15 x 20 x 40 cm. <br>Medida Especifica: 14.30 x 19.37 x 39.70 cm.<br>Peso:  12.450kg.
-                </aside>
-            </div>
+            <?php include 'productosInte.php'; ?>
         </section>
     </main>
     <footer>

@@ -9,7 +9,7 @@ header {
     width: 100%;
     background-color: #333;
     color: white;
-    padding: 1.5% 0;
+    padding: 1% 0;
     text-align: center;
 }
 
@@ -91,8 +91,7 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 2% 0;
-    display: flex;
+    padding: 1% 0;
 }
 .barra a {
     color: white;
