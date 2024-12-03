@@ -1,3 +1,15 @@
+<?php
+// Asegúrate de que el valor 'producto_id' esté presente en la URL
+if (isset($_GET['producto_id'])) {
+    $producto_id = htmlspecialchars($_GET['producto_id']);
+} else {
+    // Maneja el caso donde 'producto_id' no está presente
+    $producto_id = "";
+}
+
+$usuario_id=$_GET['usuario_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,11 +24,13 @@
             margin: 0;
             padding: 20px;
             display: flex;
+            flex-direction: column; /* Cambia la dirección del flex a columna */
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-        table.tabla1 {
+
+        .tabla1 {
             width: 100%;
             max-width: 1200px;
             background-color: #fff;
@@ -132,44 +146,44 @@
 <header>
     <h1>Obra Maestra</h1>
     <div class="carrito">
-        <a href="#"><img src="imagenes/carrito.png" alt="Carrito de compra"></a>
+        <a href="index.php?content=usuario&usuario_id=<?php echo $usuario_id?>"><img src="imagenes/usuario.png" alt="usuario"></a>
     </div>
     <div class="logo">
         <img src="logotipo.webp" alt="logotipo">
     </div>
     <div class="barra">
                 <div>
-                    <a href="#">INICIO</a>
+                    <a href="index.php?usuario_id=<?php echo $usuario_id?>">INICIO</a>
                     <p>Página principal</p>
                 </div>
 
                 <div>
-                    <a href="#">EMPRESA</a>
+                    <a href="index.php?content=empresa&usuario_id=<?php echo $usuario_id?>">EMPRESA</a>
                     <p>Sobre nosotros</p>
                 </div>
                 
                 <div>
-                    <a href="#">VIVIENDA</a>
+                    <a href="index.php?content=vivienda&usuario_id=<?php echo $usuario_id?>">VIVIENDA</a>
                     <p>Blocks para construcción</p>
                 </div>
                 
                 <div>
-                    <a href="#">BARDACRETO</a>
+                    <a href="index.php?content=bardacreto&usuario_id=<?php echo $usuario_id?>">BARDACRETO</a>
                     <p>Blocks decorativos</p>
                 </div>
                 
                 <div>
-                    <a href="#">TECHOCRETO</a>
+                    <a href="index.php?content=techocreto&usuario_id=<?php echo $usuario_id?>">TECHOCRETO</a>
                     <p>Viga y bovedilla</p>
                 </div>
                 
                 <div>
-                    <a href="#">ADOQUINES</a>
+                    <a href="index.php?content=adoquines&usuario_id=<?php echo $usuario_id?>">ADOQUINES</a>
                     <p>Pavimentos</p>
                 </div>
                 
                 <div>
-                    <a href="#">PATIOCRETO</a>
+                    <a href="index.php?content=patiocreto&usuario_id=<?php echo $usuario_id?>">PATIOCRETO</a>
                     <p>Accesorios para jardín</p>
                 </div>
         </div>
@@ -185,8 +199,10 @@
             <td class="detalles"><?php include 'detallesProductos.php'; ?></td>
             <td class="form">
                 <form class="formulario1" action="insertarPedido.php" method="post">
+                    <input type="hidden" name="producto_id" value="<?php echo $producto_id?>">
+                    <input type="hidden" name="usuario_id" value="<?php echo $usuario_id?>">
                     <label for="usuario_id">ID de Usuario:</label>
-                    <input type="number" id="usuario_id" name="usuario_id" required><br>
+                    <input type="number" id="x" name="x" value="<?php echo $usuario_id?>" disabled><br>
 
                     <label for="fecha_pedido">Fecha del Pedido:</label>
                     <input type="datetime-local" id="fecha_pedido" name="fecha_pedido" required><br>
@@ -196,12 +212,21 @@
                         <option value="pendiente">Pendiente</option>
                     </select><br>
 
-                    <label for="total">Total:</label>
-                    <input type="number" id="total" name="total" step="0.01" required><br>
+                    <label for="cantidad">Cantidad de piezas:</label>
+                    <input type="number" id="cantidad" name="cantidad" required><br>
 
                     <input type="submit" value="Crear Pedido">
                 </form>
             </td>
+        </tr>
+    </table>
+    <br>
+    <table class="tabla1">
+        <tr class="titulos">
+            <th class="titulo"><h2>Reseñas del producto</h2></th>
+        </tr>
+        <tr class="contenido">
+            <td class="reseñas"><?php include 'rereseñas.php'; ?></td>
         </tr>
     </table>
 </main>

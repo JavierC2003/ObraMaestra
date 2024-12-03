@@ -20,7 +20,9 @@
 
     // Preparar la consulta SQL
     $sql = "SELECT producto_id, nombre, descripcion, especificaciones, precio, imagen_url 
-            FROM productos";
+        FROM productos 
+        LIMIT 4";
+
 
     // Preparar la declaración
     $stmt = $conn->prepare($sql); 

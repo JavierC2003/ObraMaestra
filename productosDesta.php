@@ -18,9 +18,16 @@
         die("Conexión fallida: " . $conn->connect_error);
     }
 
-    // Preparar la consulta SQL
-    $sql = "SELECT producto_id, nombre, descripcion, especificaciones, precio, imagen_url 
-            FROM productos";
+    if ($categoria_id>0) {
+        $sql = "SELECT producto_id, nombre, descripcion, especificaciones, precio, imagen_url 
+                FROM productos 
+                WHERE categoria_id = $categoria_id";
+
+    }else {
+        $sql = "SELECT producto_id, nombre, descripcion, especificaciones, precio, imagen_url 
+        FROM productos 
+        LIMIT 4";
+    }
 
     // Preparar la declaración
     $stmt = $conn->prepare($sql); 
@@ -44,7 +51,7 @@
 <?php if (count($productos) > 0): ?>
     <?php foreach ($productos as $productos): ?>
         <div class="producto">
-            <a href="formularioPedido.php?producto_id=<?php echo $productos['producto_id']; ?>">
+            <a href="formularioPedido.php?producto_id=<?php echo $productos['producto_id']; ?>&usuario_id=<?php echo $usuario_id; ?>">
                 <img src="<?php echo htmlspecialchars($productos['imagen_url']); ?>" alt="<?php echo htmlspecialchars($productos['nombre']); ?>">
             </a>
             <h3><?php echo htmlspecialchars($productos['nombre']); ?></h3>
